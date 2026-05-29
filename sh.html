@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Santji Namkeens - The Art of Perfect Snacking</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        /* Navigation Bar */
+        nav {
+            background-color: white;
+            padding: 15px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo img {
+            height: 70px;
+            width: auto;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 40px;
+            list-style: none;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        .nav-menu a:hover {
+            color: #DC143C;
+        }
+
+        .nav-menu a.active {
+            color: #DC143C;
+        }
+
+        .nav-menu a.active::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: #DC143C;
+        }
+
+        .call-btn {
+            background-color: #DC143C;
+            color: white;
+            padding: 10px 25px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: background-color 0.3s;
+        }
+
+        .call-btn:hover {
+            background-color: #B22222;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #f5f5f5 0%, #ffffff 100%);
+            padding: 60px 50px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 50px;
+            min-height: 600px;
+        }
+
+        .hero-content {
+            flex: 1;
+        }
+
+        .hero-content h1 {
+            font-size: 48px;
+            font-weight: 900;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            color: #1a1a1a;
+        }
+
+        .hero-content h1 .highlight {
+            color: #DC143C;
+        }
+
+        .hero-content p {
+            font-size: 16px;
+            color: #666;
+            margin-bottom: 30px;
+            line-height: 1.8;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+        }
+
+        .btn {
+            padding: 12px 30px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background-color: #DC143C;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: #B22222;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(220, 20, 60, 0.3);
+        }
+
+        .btn-secondary {
+            background-color: #FFD700;
+            color: #1a1a1a;
+        }
+
+        .btn-secondary:hover {
+            background-color: #FFC700;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 215, 0, 0.3);
+        }
+
+        .hero-image {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero-image img {
+            max-width: 100%;
+            height: auto;
+            filter: drop-shadow(0 10px 30px rgba(0,0,0,0.2));
+        }
+
+        /* Decorative Line */
+        .decorative-line {
+            width: 100px;
+            height: 2px;
+            background: linear-gradient(90deg, #DC143C 0%, transparent 100%);
+            margin-bottom: 20px;
+        }
+
+        /* About Section */
+        .about {
+            position: relative;
+            background-color: #DC143C;
+            color: white;
+            padding: 100px 50px 80px 50px;
+            overflow: visible;
+            margin-top: 60px;
+        }
+
+        .about::before {
+            content: '';
+            position: absolute;
+            top: -60px;
+            left: 0;
+            right: 0;
+            height: 100px;
+            background: url('data:image/svg+xml,<svg viewBox="0 0 1440 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"><path d="M0,64L120,74.7C240,85,480,107,720,106.7C960,107,1200,85,1320,74.7L1440,64L1440,0L1320,0C1200,0,960,0,720,0C480,0,240,0,120,0L0,0Z" fill="%23DC143C"></path></svg>');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: top;
+        }
+
+        .about-content {
+            position: relative;
+            z-index: 1;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .about-content h2 {
+            font-size: 48px;
+            font-weight: 900;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .about-content p {
+            font-size: 16px;
+            line-height: 1.8;
+            margin-bottom: 20px;
+            text-align: justify;
+        }
+
+        .about-btn {
+            display: inline-block;
+            background-color: #FFD700;
+            color: #1a1a1a;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: all 0.3s;
+            text-decoration: none;
+        }
+
+        .about-btn:hover {
+            background-color: #FFC700;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 215, 0, 0.3);
+        }
+
+        .about::after {
+            content: '';
+            position: absolute;
+            bottom: -60px;
+            left: 0;
+            right: 0;
+            height: 100px;
+            background: url('data:image/svg+xml,<svg viewBox="0 0 1440 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"><path d="M0,64L120,69.3C240,75,480,85,720,80C960,75,1200,53,1320,42.7L1440,32L1440,120L1320,120C1200,120,960,120,720,120C480,120,240,120,120,120L0,120Z" fill="%23DC143C"></path></svg>');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: bottom;
+        }
+
+        /* Features Section */
+        .features {
+            background-color: #f9f9f9;
+            padding: 60px 50px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+        }
+
+        .feature-card {
+            text-align: center;
+            padding: 30px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            transition: transform 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-icon {
+            font-size: 40px;
+            margin-bottom: 15px;
+        }
+
+        .feature-card h3 {
+            color: #DC143C;
+            margin-bottom: 10px;
+            font-size: 20px;
+        }
+
+        .feature-card p {
+            color: #666;
+            font-size: 14px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #1a1a1a;
+            color: white;
+            padding: 50px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-section h3 {
+            color: #FFD700;
+            margin-bottom: 20px;
+            font-size: 18px;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer-section a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-section a:hover {
+            color: #FFD700;
+        }
+
+        .footer-contact {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .footer-contact p {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #ccc;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: #DC143C;
+            color: white;
+            border-radius: 50%;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+
+        .social-links a:hover {
+            background-color: #FFD700;
+            color: #1a1a1a;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #333;
+            padding-top: 30px;
+            text-align: center;
+            color: #999;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                gap: 20px;
+                padding: 15px 20px;
+            }
+
+            .nav-menu {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .hero {
+                flex-direction: column;
+                padding: 40px 20px;
+                min-height: auto;
+            }
+
+            .hero-content h1 {
+                font-size: 32px;
+            }
+
+            .about {
+                padding: 60px 20px;
+            }
+
+            .about-content h2 {
+                font-size: 32px;
+            }
+
+            .features {
+                grid-template-columns: 1fr;
+                padding: 40px 20px;
+            }
+
+            .footer-content {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 30px;
+                padding: 0 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav>
+        <div class="logo">
+            <img src="sant-ji-logo.png" alt="Santji Namkeens Logo">
+        </div>
+        <ul class="nav-menu">
+            <li><a href="#home" class="active">Home</a></li>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#products">Products</a></li>
+            <li><a href="#categories">Categories</a></li>
+            <li><a href="#contact">Contact Us</a></li>
+        </ul>
+        <a href="tel:+917371987883" class="call-btn">
+            <span><img src="Phone bqlqn Flat icon _ Magnific (formerly Freepik)_files/2948005(2).png" width="15px"></span>
+            Call
+        </a>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <div class="decorative-line"></div>
+            <h1>THE ART OF PERFECT <span class="highlight">SNACKING.</span></h1>
+            <p>Discover the perfect balance of taste and texture with our premium namkeens. Crafted with care, every bite is a burst of flavor that satisfies your cravings and elevates your snack time. Experience snacking like never before!</p>
+            <div class="hero-buttons">
+                <button class="btn btn-primary">Shop Now</button>
+                <button class="btn btn-secondary">Learn More</button>
+            </div>
+        </div>
+        <div class="hero-image">
+            <img src="https://www.santjinamkeens.com/media/uploads/santji-hero.png" alt="Santji Namkeens - Sev Badam Product">
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section class="about" id="about">
+        <div class="about-content">
+            <h2>About Us</h2>
+            <p>At Santji, we believe in delivering not just namkeens but a rich experience that combines unforgettable flavors with a deep sense of tradition. Our journey began in the heart of Gorakhpur, inspired by a passion for crafting authentic Indian snacks that celebrate the essence of our culinary heritage. From the very beginning, our focus has been on blending time-honored recipes with the finest ingredients to create snacks that stand out in taste and quality.</p>
+            
+            <p>Over the years, we have refined our techniques and expanded our offerings to cater to the diverse tastes of our customers. Each batch of our namkeens is prepared with meticulous attention to detail, ensuring a consistent, premium experience in every bite. Whether it's the crispy texture, the perfect balance of spices, or the freshness that lingers, our snacks are designed to delight your senses and evoke nostalgia for traditional Indian flavors.</p>
+            
+            <p>At Santji, every packet tells a story of dedication, innovation, and a commitment to bringing joy to your snacking moments. We are proud to share our heritage with you, one flavorful bite at a time. Join us on this journey and savor the art of perfect snacking!</p>
+            
+            <button class="about-btn">Read More</button>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="feature-card">
+            <div class="feature-icon">🌾</div>
+            <h3>Premium Quality</h3>
+            <p>Made with the finest ingredients sourced from trusted suppliers across India.</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">👨‍🍳</div>
+            <h3>Expert Crafted</h3>
+            <p>Each product is carefully prepared by our experienced team of master chefs.</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">✨</div>
+            <h3>Taste Perfection</h3>
+            <p>Perfectly balanced flavors that delight your taste buds with every bite.</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>About Santji</h3>
+                <p>We are committed to bringing authentic, delicious namkeens to your table with the highest quality standards and traditional recipes.</p>
+                <div class="social-links">
+                    <a href="https://facebook.com" title="Facebook">f</a>
+                    <a href="https://instagram.com" title="Instagram">📷</a>
+                    <a href="https://twitter.com" title="Twitter">𝕏</a>
+                    <a href="https://youtube.com" title="YouTube">▶</a>
+                </div>
+            </div>
+
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#products">Products</a></li>
+                    <li><a href="#categories">Categories</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>Products</h3>
+                <ul>
+                    <li><a href="#">Sev Badam</a></li>
+                    <li><a href="#">Namkeen Mix</a></li>
+                    <li><a href="#">Chikhalwali</a></li>
+                    <li><a href="#">Moong Dal</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>Contact Info</h3>
+                <div class="footer-contact">
+                    <p>📞<strong>7371987883</strong></p>
+                    <p>✉️ <strong>vikas6092kr@gmail.com</strong></p>
+                    <p>📍 India</p>
+                    <p>Available 24/7 for your queries</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2024 Santji Namkeens. All rights reserved. | Crafted with ❤️ for your taste buds</p>
+        </div>
+    </footer>
+</body>
+</html>
+<m class="html"></m>
