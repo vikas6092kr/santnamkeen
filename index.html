@@ -420,6 +420,29 @@
                 padding: 0 20px;
             }
         }
+        .sky-balloon{
+            height: 220px;
+            width:200px;
+            background-image: url('paintfile.png');
+            background-size: cover;
+            background-position: center;
+            position: fixed;
+            top: 85px; 
+            right: 61.85%;
+            z-index: 9999;
+            animation: floatUpDown 3s ease-in-out infinite;
+        }  @keyframes floatUpDown {
+                0% {
+                    transform: translateY(5px);
+                }
+                50% {
+                    transform: translateY(-5px);
+                }
+                100% {
+                    transform: translateY(5px);
+                }
+        }
+        
     </style>
 </head>
 <body>
@@ -436,11 +459,12 @@
             <li><a href="#contact">Contact Us</a></li>
         </ul>
         <a href="tel:+917371987883" class="call-btn">
-            <span><img src="Phone bqlqn Flat icon _ Magnific (formerly Freepik)_files/2948005(2).png" width="15px"></span>
+            
+            <span>📞</span>
             Call
         </a>
     </nav>
-
+     
     <!-- Hero Section -->
     <section class="hero" id="home">
         <div class="hero-content">
@@ -491,6 +515,10 @@
             <p>Perfectly balanced flavors that delight your taste buds with every bite.</p>
         </div>
     </section>
+     <!-- sky ballon -->
+    <div class="sky-balloon">
+        
+    </div>
 
     <!-- Footer -->
     <footer>
